@@ -3,7 +3,7 @@ import java.util.concurrent.Semaphore;
 public class Threads extends Thread{
 	private int numAviao,tipoPista;
 	private Semaphore semaforo;
-	public Threads(int numComprador, Semaphore semaforo, int tipoPista) {
+	public Threads(int numAviao, Semaphore semaforo, int tipoPista) {
 		this.numAviao = numAviao;
 		this.semaforo = semaforo;
 		this.tipoPista = tipoPista;
@@ -74,6 +74,7 @@ public class Threads extends Thread{
 		}
 		System.out.println("Pista norte liberada.");
 	}
+	
 	
 	public void decolagemSul() {
 		System.out.println("Iniciando manobra do avião #" + numAviao + "| Pista: Sul");
