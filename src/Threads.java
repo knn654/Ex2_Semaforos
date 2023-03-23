@@ -17,8 +17,6 @@ public class Threads extends Thread{
 			System.out.println("Avião #" + numAviao + "| Pista: Sul");
 			sul();
 		}
-		System.out.println("Avião #" + numAviao + "| Pista: Norte");
-		norte();
 
 	}
 	
