@@ -1,14 +1,15 @@
 import java.util.concurrent.Semaphore;
 
-public class Threads extends Thread{
-	private int numAviao,tipoPista;
+public class Threads extends Thread {
+	private int numAviao, tipoPista;
 	private Semaphore semaforo;
+
 	public Threads(int numAviao, Semaphore semaforo, int tipoPista) {
 		this.numAviao = numAviao;
 		this.semaforo = semaforo;
 		this.tipoPista = tipoPista;
 	}
-	
+
 	public void run() {
 		if (tipoPista == 1) {
 			System.out.println("Avião #" + numAviao + "| Pista: Norte");
@@ -19,7 +20,7 @@ public class Threads extends Thread{
 		}
 
 	}
-	
+
 	public void sul() {
 		try {
 			semaforo.acquire();
@@ -31,7 +32,7 @@ public class Threads extends Thread{
 		}
 
 	}
-	
+
 	public void norte() {
 		try {
 			semaforo.acquire();
@@ -42,7 +43,7 @@ public class Threads extends Thread{
 			semaforo.release();
 		}
 	}
-	
+
 	public void decolagemNorte() {
 		System.out.println("Iniciando manobra do avião #" + numAviao + "| Pista: Norte");
 		System.out.println("Manobrando avião #" + numAviao + "...");
@@ -75,7 +76,7 @@ public class Threads extends Thread{
 		}
 		System.out.println("Pista norte liberada.");
 	}
-	
+
 	public void decolagemSul() {
 		System.out.println("Iniciando manobra do avião #" + numAviao + "| Pista: Sul");
 		System.out.println("Manobrando avião #" + numAviao + "...");
@@ -106,7 +107,7 @@ public class Threads extends Thread{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("Pista sul liberada.");	
+		System.out.println("Pista sul liberada.");
 	}
 
 }
